@@ -8,11 +8,11 @@
   %table.table.table-striped.table-bordered.table-hover
     %thead
       %tr
-        %th First name
-        %th Last name
+        %th Name
         %th Phone
         %th Company
         %th Shop
+        %th Role
         %th
         %th
         %th
@@ -20,11 +20,11 @@
     %tbody
       - @users.each do |user|
         %tr
-          %td= user.first_name
-          %td= user.last_name
+          %td= user.full_name
           %td= user.phone
           %td= user.company_id
           %td= user.shop_id
+          %td= user.role
           %td= link_to 'Show', user
           %td= link_to 'Edit', edit_user_path(user)
           %td= link_to 'Destroy', user, data: { confirm: 'Are you sure?' }, method: :delete

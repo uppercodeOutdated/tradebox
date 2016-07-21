@@ -7,7 +7,12 @@ class User < ActiveRecord::Base
   belongs_to :shop
   belongs_to :company
 
+  ROLES = %i[customer provider]
+
   def full_name
-  	"#{first_name} #{last_name}"
+    "#{first_name} #{last_name}"
   end
+
+  validates :shop_id,    presence: true, unless: ->(user){ user.company_id.present? }
+  validates :company_id, presence: true, unless: ->(user){ user.shop_id.present?    }
 end

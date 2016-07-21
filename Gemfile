@@ -35,6 +35,8 @@ gem 'haml-rails'
 
 gem 'devise'
 
+gem 'cancancan'
+
 # Twitter Bootstrap
 gem 'bootstrap-sass'
 gem 'font-awesome-sass-rails'

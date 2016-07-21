@@ -31,5 +31,10 @@
     .col-sm-10
       = f.number_field :shop_id, class: 'form-control'
   .form-group
+    = f.label :role, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.collection_select(:role, User::ROLES, :to_s, lambda{|i| i.to_s.humanize})
+
+  .form-group
     .col-sm-offset-2.col-sm-10
       = f.submit class: 'btn btn-primary'
