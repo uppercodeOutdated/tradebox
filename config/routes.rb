@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
+  resources :bookings
   devise_for :users
 
-  resources :bookings
   resources :products
   resources :users
   resources :shops

@@ -10,8 +10,10 @@
       %tr
         %th Name
         %th Product
+        %th Company
         %th Quantity
         %th User
+        %th Shop
         %th
         %th
         %th
@@ -21,8 +23,10 @@
         %tr
           %td= booking.name
           %td= booking.product_id
+          %td= booking.company_id
           %td= booking.quantity
           %td= booking.user_id
+          %td= booking.shop_id
           %td= link_to 'Show', booking
           %td= link_to 'Edit', edit_booking_path(booking)
           %td= link_to 'Destroy', booking, data: { confirm: 'Are you sure?' }, method: :delete
