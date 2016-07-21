@@ -33,10 +33,13 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 gem 'haml-rails'
 
+gem 'devise'
+
 # Twitter Bootstrap
 gem 'bootstrap-sass'
 gem 'font-awesome-sass-rails'
 gem 'bootstrap-generators'
+gem 'devise-bootstrap-views'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
