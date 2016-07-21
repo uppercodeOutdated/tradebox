@@ -1,0 +1,24 @@
+.page-header
+  = link_to new_shop_path, class: 'btn btn-primary' do
+    %span.glyphicon.glyphicon-plus
+    New Shop
+  %h1 Listing shops
+
+.table-responsive
+  %table.table.table-striped.table-bordered.table-hover
+    %thead
+      %tr
+        %th Name
+        %th Address
+        %th
+        %th
+        %th
+
+    %tbody
+      - @shops.each do |shop|
+        %tr
+          %td= shop.name
+          %td= shop.address
+          %td= link_to 'Show', shop
+          %td= link_to 'Edit', edit_shop_path(shop)
+          %td= link_to 'Destroy', shop, data: { confirm: 'Are you sure?' }, method: :delete

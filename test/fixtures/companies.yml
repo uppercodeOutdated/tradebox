@@ -2,12 +2,6 @@
 
 one:
   name: MyString
-  price: 1.5
-  code: MyString
-  company_id: 1
 
 two:
   name: MyString
-  price: 1.5
-  code: MyString
-  company_id: 1

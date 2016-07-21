@@ -1,0 +1,18 @@
+.page-header
+  = link_to bookings_path, class: 'btn btn-default' do
+    %span.glyphicon.glyphicon-list-alt
+    Back
+  = link_to edit_booking_path(@booking), class: 'btn btn-primary' do
+    %span.glyphicon.glyphicon-pencil
+    Edit
+  %h1 Show booking
+
+%dl.dl-horizontal
+  %dt Name:
+  %dd= @booking.name
+  %dt Product:
+  %dd= @booking.product_id
+  %dt Quantity:
+  %dd= @booking.quantity
+  %dt User:
+  %dd= @booking.user_id
