@@ -4,7 +4,11 @@ class CompaniesController < ApplicationController
   # GET /companies
   # GET /companies.json
   def index
-    @companies = Company.all
+    if current_user.has_role?(:customer)
+      @companies = Company.all
+    else
+      @companies = [current_user.company]
+    end
   end
 
   # GET /companies/1

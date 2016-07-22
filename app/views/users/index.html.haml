@@ -10,8 +10,7 @@
       %tr
         %th Name
         %th Phone
-        %th Company
-        %th Shop
+        %th= current_user.has_role?(:provider) ? 'Company' : 'Shop'
         %th Role
         %th
         %th
@@ -22,9 +21,8 @@
         %tr
           %td= user.full_name
           %td= user.phone
-          %td= user.company_id
-          %td= user.shop_id
-          %td= user.role
+          %td= current_user.has_role?(:provider) ? current_user.company.name : current_user.shop.name
+          %td= user.role.humanize
           %td= link_to 'Show', user
           %td= link_to 'Edit', edit_user_path(user)
           %td= link_to 'Destroy', user, data: { confirm: 'Are you sure?' }, method: :delete

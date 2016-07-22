@@ -4,7 +4,11 @@ class ProductsController < ApplicationController
   # GET /products
   # GET /products.json
   def index
-    @products = Product.all
+    if current_user.has_role?(:provider)
+      @products = current_user.company.products
+    else
+      @products = Product.all
+    end
   end
 
   # GET /products/1

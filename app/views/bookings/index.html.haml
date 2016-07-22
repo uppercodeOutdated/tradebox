@@ -10,10 +10,12 @@
       %tr
         %th Name
         %th Product
-        %th Company
+        - if current_user.has_role?(:customer)
+          %th Company
         %th Quantity
         %th User
-        %th Shop
+        - if current_user.has_role?(:provider)
+          %th Shop
         %th
         %th
         %th
@@ -22,11 +24,13 @@
       - @bookings.each do |booking|
         %tr
           %td= booking.name
-          %td= booking.product_id
-          %td= booking.company_id
+          %td= booking.product.name
+          - if current_user.has_role?(:customer)
+            %td= booking.company.name
           %td= booking.quantity
-          %td= booking.user_id
-          %td= booking.shop_id
+          %td= booking.user.full_name
+          - if current_user.has_role?(:provider)
+            %td= booking.shop.name
           %td= link_to 'Show', booking
           %td= link_to 'Edit', edit_booking_path(booking)
           %td= link_to 'Destroy', booking, data: { confirm: 'Are you sure?' }, method: :delete

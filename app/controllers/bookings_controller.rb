@@ -4,7 +4,11 @@ class BookingsController < ApplicationController
   # GET /bookings
   # GET /bookings.json
   def index
-    @bookings = Booking.all
+    if current_user.has_role?(:customer)
+      @bookings = Booking.where(shop_id: current_user.shop_id)
+    else
+      @bookings = Booking.where(company_id: current_user.company_id)
+    end
   end
 
   # GET /bookings/1

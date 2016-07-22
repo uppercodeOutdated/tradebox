@@ -4,7 +4,11 @@ class ShopsController < ApplicationController
   # GET /shops
   # GET /shops.json
   def index
-    @shops = Shop.all
+    if current_user.has_role?(:provider)
+      @shops = Shop.all
+    else
+      @shops = [current_user.shop]
+    end
   end
 
   # GET /shops/1

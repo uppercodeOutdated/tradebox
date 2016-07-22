@@ -11,12 +11,14 @@
   %dt Name:
   %dd= @booking.name
   %dt Product:
-  %dd= @booking.product_id
-  %dt Company:
-  %dd= @booking.company_id
+  %dd= @booking.product.name
+  - if current_user.has_role?(:customer)
+    %dt Company:
+    %dd= @booking.company.name
   %dt Quantity:
   %dd= @booking.quantity
   %dt User:
-  %dd= @booking.user_id
-  %dt Shop:
-  %dd= @booking.shop_id
+  %dd= @booking.user.full_name
+  - if current_user.has_role?(:provider)
+    %dt Shop:
+    %dd= @booking.shop.name
