@@ -2,9 +2,20 @@
   %h1.text-center Welcome to TradeBox, #{current_user.full_name}
 
 .row
-  .col-lg-offset-3.col-lg-6.text-center
-    = link_to 'Products',  products_path,  class: 'btn btn-primary'
-    = link_to 'Companies', companies_path, class: 'btn btn-success'
-    = link_to 'Shops',     shops_path,     class: 'btn btn-info'
-    = link_to 'Bookings',  bookings_path,  class: 'btn btn-danger'
-    = link_to 'Users',     users_path,     class: 'btn btn-warning'
+  .col-lg-6.col-md-6.col-sm-12.text-center
+    = image_tag 'handshake'
+  .col-lg-6.col-md-6.col-sm-12
+    %h2.text-center 
+    .list-group.text-center
+      %a.list-group-item{href: products_path}
+        %h4.list-group-item-heading Products
+      %a.list-group-item{href: companies_path}
+        %h4.list-group-item-heading Companies
+      %a.list-group-item{href: shops_path}
+        %h4.list-group-item-heading Shops
+      %a.list-group-item{href: bookings_path}
+        %h4.list-group-item-heading Bookings
+      %a.list-group-item{href: users_path}
+        %h4.list-group-item-heading Partners
+      %a.list-group-item{href: bookings_path}
+        %h4.list-group-item-heading History
